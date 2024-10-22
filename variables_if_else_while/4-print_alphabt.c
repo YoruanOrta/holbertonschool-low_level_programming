@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-char str[] = "abcdfghijklmnopqrstuvwxyz";
-int i;
+char letter;
 
-for (i = 0; str[i] != '\0'; i++)
-putchar(str[i]);
+for (letter = 'a'; letter <= 'z'; letter++)
+if (letter != 'e' && letter != 'q')
+putchar(letter);
 putchar('\n');
 
 return (0);
