@@ -9,7 +9,6 @@
 void times_table(void)
 {
 	int i, j, product;
-	int digit1, digit2;
 
 	for (i = 0; i < 10; i++)
 	{
@@ -18,21 +17,24 @@ void times_table(void)
 			product = i * j;
 			if (j == 0)
 			{
-				digit1 = product + '0';
-				_putchar(digit1);
+				_putchar(product + '0');
 			}
-		else
-		{
-			_putchar(',');
-			_putchar(' ');
-			if (product < 10)
+			else
 			{
+				_putchar(',');
 				_putchar(' ');
+				if (product < 10)
+				{
+					_putchar(' ');
+					_putchar(product + '0');
+				}
+				else
+				{
+					_putchar((product / 10) + '0');
+					_putchar((product % 10) + '0');
+				}
 			}
-			digit2 = product + '0';
-			_putchar(digit2);
 		}
-		}
-	_putchar('\n');
+		_putchar('\n');
 	}
 }
