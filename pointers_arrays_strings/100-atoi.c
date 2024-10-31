@@ -28,7 +28,7 @@ int _atoi(char *s)
 			started = 1;
 			number = number * 10 + (*s - '0');
 
-			if (number > 2147483647)
+			if (number > 2147483648)
 			{
 				return ((sign == -1) ? 0 : -1);
 			}
