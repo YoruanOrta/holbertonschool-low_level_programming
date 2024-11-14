@@ -1,42 +1,34 @@
-#include <stdlib.h>
-#include <string.h>
 #include "dog.h"
-
+#include <stdlib.h>
 /**
- * new_dog - creates a new dog and returns a pointer to it.
- * @name: name of the dog.
- * @age: age of the dog.
- * @owner: owner of the dog.
- *
- * Return: pointer to the new dog_t, or NULL if it fails.
+ * new_dog - creates a new dog
+ * @name: char *
+ * @age: float
+ * @owner: char *
+ * Return: dog_t *
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog = malloc(sizeof(dog_t));
 
-	if (new_dog == NULL)
+	if (new_dog != NULL)
 	{
-		return (NULL);
-	}
+		if (name != NULL)
+			new_dog->name = name;
+		else
+			new_dog->name = "(nil)";
 
-	new_dog->name = malloc(strlen(name) + 1);
-	if (new_dog->name == NULL)
-	{
-		free(new_dog);
-		return (NULL);
-	}
-	strcpy(new_dog->name, name);
+		if (age > 0)
+			new_dog->age = age;
+		else
+			new_dog->age = 0;
 
-	new_dog->owner = malloc(strlen(owner) + 1);
-	if (new_dog->owner == NULL)
-	{
-		free(new_dog->name);
-		free(new_dog);
-		return (NULL);
+		if (owner != NULL)
+			new_dog->owner = owner;
+		else
+			new_dog->owner = "(nil)";
 	}
-	strcpy(new_dog->owner, owner);
-
-	new_dog->age = age;
 
 	return (new_dog);
 }
