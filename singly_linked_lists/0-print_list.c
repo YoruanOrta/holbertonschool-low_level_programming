@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 #include "lists.h"
 
 /**
- * print_list - prints all the elements of a list
- * @h: the parameter passed to the function
+ * print_list - the name of function
+ * @h: the pointer to h
  *
  * Return: count
  */
@@ -16,22 +15,12 @@ size_t print_list(const list_t *h)
 	while (h != NULL)
 	{
 		if (h->str == NULL)
-		{
-			printf("[0] (nil)\n");
-		}
+			printf("[%d] (nil)\n", h->len);
 		else
-		{
-			size_t lenght = 0;
-			while (h->str[lenght] != '\0')
-			{
-				lenght++;
-			}
-			printf("[%lu] %s\n", strlen(h->str), h->str);
-		}
+			printf("[%d] %s\n", h->len, h->str);
 
 		h = h->next;
 		count++;
 	}
-
 	return (count);
 }
