@@ -31,6 +31,4 @@ void print_binary(unsigned long int n)
 	{
 		putchar('0');
 	}
-
-	putchar('\n');
 }
